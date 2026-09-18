@@ -37,9 +37,9 @@ lands in a separate error workflow that logs it and sends an alert.
 | `sample-payloads/` | one request body per test case |
 | `docs/ARCHITECTURE.md` | branches, output contract, Airtable schema, retry policy, test results |
 | `docs/SETUP.md` | every key and credential, manual import, how to connect your own source |
+| `docs/DESIGN.md` | the design document written before the build, and what changed on the way |
 | `LIMITATIONS.md` | what this workflow does not do |
 | `docker-compose.yml` | a minimal n8n, if you do not have one running |
-| `demo-1-lead-to-crm-architecture.md` | the original design spec this was built from (in Ukrainian) |
 
 ## Get it running
 
