@@ -1,0 +1,253 @@
+{
+  "name": "Lead → CRM · Error workflow",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "df7d9ca9-4664-58ca-b4ab-18c71dfdf813",
+      "name": "Error trigger",
+      "type": "n8n-nodes-base.errorTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Error Workflow: one Runs row + one alert per crashed execution. Input = n8n Error Trigger output.\nconst e = $input.first().json;\nconst ex = e.execution || {};\nconst wf = e.workflow || {};\nconst err = ex.error || (e.trigger && e.trigger.error) || {};\n\nconst row = {\n  run_id: ex.id || 'n/a',\n  timestamp: DateTime.utc().toISO(),\n  trigger_source: `error_workflow:${wf.name || 'unknown workflow'}`,\n  lead_ref: '',\n  status: 'error',\n  failed_node: ex.lastNodeExecuted || 'unknown',\n  error_message: `${err.message || 'unknown error'}${ex.url ? `\\n${ex.url}` : ''}`.slice(0, 2000),\n  duration_ms: null,\n};\n\nconst esc = (s) => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');\nconst telegram_text = `🛑 <b>Workflow crashed</b>: ${esc(wf.name || 'unknown')}\\nNode: ${esc(row.failed_node)}\\n${esc(String(err.message || '').slice(0, 300))}${ex.url ? `\\n${esc(ex.url)}` : ''}`;\n\nreturn [{ json: { ...row, telegram_text } }];\n"
+      },
+      "id": "7fd90ccc-6caf-5b7f-a9f7-67da9ea52f38",
+      "name": "Build error row",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        260,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "record",
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "mode": "id",
+          "value": "__AIRTABLE_BASE_ID__"
+        },
+        "table": {
+          "__rl": true,
+          "mode": "id",
+          "value": "__RUNS_TABLE_ID__"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "run_id": "={{ $json.run_id }}",
+            "timestamp": "={{ $json.timestamp }}",
+            "trigger_source": "={{ $json.trigger_source }}",
+            "lead_ref": "={{ $json.lead_ref }}",
+            "status": "={{ $json.status }}",
+            "failed_node": "={{ $json.failed_node }}",
+            "error_message": "={{ $json.error_message }}",
+            "duration_ms": "={{ $json.duration_ms }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "run_id",
+              "displayName": "run_id",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "timestamp",
+              "displayName": "timestamp",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "trigger_source",
+              "displayName": "trigger_source",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "lead_ref",
+              "displayName": "lead_ref",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "status",
+              "displayName": "status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "readOnly": false,
+              "removed": false,
+              "options": [
+                {
+                  "name": "ok",
+                  "value": "ok"
+                },
+                {
+                  "name": "retry",
+                  "value": "retry"
+                },
+                {
+                  "name": "error",
+                  "value": "error"
+                }
+              ]
+            },
+            {
+              "id": "failed_node",
+              "displayName": "failed_node",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "error_message",
+              "displayName": "error_message",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "duration_ms",
+              "displayName": "duration_ms",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {
+          "typecast": true
+        }
+      },
+      "id": "d0f4f588-ddc4-5987-8e01-c4793ae8467c",
+      "name": "Log failed run",
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.2,
+      "position": [
+        520,
+        0
+      ],
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "__AIRTABLE_CRED_ID__",
+          "name": "Airtable PAT (Lead to CRM)"
+        }
+      },
+      "onError": "continueRegularOutput",
+      "retryOnFail": false
+    },
+    {
+      "parameters": {
+        "resource": "message",
+        "operation": "sendMessage",
+        "chatId": "__TELEGRAM_CHAT_ID__",
+        "text": "={{ $('Build error row').first().json.telegram_text }}",
+        "additionalFields": {
+          "appendAttribution": false,
+          "parse_mode": "HTML"
+        }
+      },
+      "id": "8764a8a9-449e-55d8-9f87-0d52b39b4f90",
+      "name": "Telegram error alert",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        780,
+        0
+      ],
+      "credentials": {
+        "telegramApi": {
+          "id": "__TELEGRAM_CRED_ID__",
+          "name": "Telegram bot (Lead to CRM)"
+        }
+      },
+      "onError": "continueRegularOutput",
+      "retryOnFail": false
+    }
+  ],
+  "connections": {
+    "Error trigger": {
+      "main": [
+        [
+          {
+            "node": "Build error row",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Build error row": {
+      "main": [
+        [
+          {
+            "node": "Log failed run",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Log failed run": {
+      "main": [
+        [
+          {
+            "node": "Telegram error alert",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveDataErrorExecution": "all",
+    "saveDataSuccessExecution": "all"
+  },
+  "staticData": null
+}
