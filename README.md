@@ -24,6 +24,11 @@ Reliability is part of the design rather than an afterthought. A second model st
 overloaded. Calls without side effects are retried with backoff; writes never are. Whatever still crashes
 lands in a separate error workflow that logs it and sends an alert.
 
+![Lead to CRM, in the order it runs](docs/images/workflow.svg)
+
+The picture is generated from `workflow.json` by `scripts/render_graph.py`, so it cannot drift from
+the graph. Regenerate it after you change a node.
+
 ## What is where
 
 | Path | What it is |

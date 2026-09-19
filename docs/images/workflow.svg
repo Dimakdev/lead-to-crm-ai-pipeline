@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1032 1294" width="1032" height="1294" font-family="ui-sans-serif, -apple-system, 'Segoe UI', Roboto, sans-serif">
+<style>.bg{fill:#fff}.t{fill:#111827}.s{fill:#6b7280}@media (prefers-color-scheme: dark){.bg{fill:#0d1117}.t{fill:#e6edf3}.s{fill:#9198a1}.box{filter:brightness(.8) saturate(1.1)}}</style>
+<defs><marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#9aa4b2"/></marker></defs>
+<rect class="bg" width="1032" height="1294" fill="#ffffff"/>
+<text class="t" x="26" y="34" font-size="20" font-weight="600" fill="#111827">Lead to CRM, in the order it runs</text>
+<text class="s" x="26" y="56" font-size="13" fill="#6b7280">Every branch returns the same six fields, so everything after the split is one path. Retries and waits are drawn where they actually sit.</text>
+<text class="t" x="26" y="108" font-size="14" font-weight="600" fill="#111827">Three ways in, one shape out</text>
+<path d="M238,157.0 L274,157.0" fill="none" stroke="#9aa4b2" stroke-width="1.8" marker-end="url(#a)"/>
+<path d="M494,157.0 L530,157.0" fill="none" stroke="#9aa4b2" stroke-width="1.8" marker-end="url(#a)"/>
+<path d="M750,157.0 L786,157.0" fill="none" stroke="#9aa4b2" stroke-width="1.8" marker-end="url(#a)"/>
+<path d="M900.0,188 L900.0,209.0 L132.0,209.0 L132.0,222" fill="none" stroke="#9aa4b2" stroke-width="1.8" stroke-dasharray="5 4" marker-end="url(#a)"/>
+<path d="M238,261.0 L274,261.0" fill="none" stroke="#9aa4b2" stroke-width="1.8" marker-end="url(#a)"/>
+<path d="M494,261.0 L530,261.0" fill="none" stroke="#9aa4b2" stroke-width="1.8" marker-end="url(#a)"/>
+<path d="M750,261.0 L786,261.0" fill="none" stroke="#9aa4b2" stroke-width="1.8" marker-end="url(#a)"/>
+<path d="M900.0,292 L900.0,313.0 L132.0,313.0 L132.0,326" fill="none" stroke="#9aa4b2" stroke-width="1.8" stroke-dasharray="5 4" marker-end="url(#a)"/>
+<rect class="box" x="26" y="126" width="212" height="62" rx="9" fill="#dcf2e6" stroke="#2f6f4f" stroke-width="1.7"/>
+<text x="35" y="141" font-size="10" fill="#2f6f4f" opacity=".65">1</text>
+<text x="132.0" y="161.0" text-anchor="middle" font-size="13.5" fill="#2f6f4f" font-weight="600">Form trigger</text>
+<rect class="box" x="282" y="126" width="212" height="62" rx="9" fill="#dcf2e6" stroke="#2f6f4f" stroke-width="1.7"/>
+<text x="291" y="141" font-size="10" fill="#2f6f4f" opacity=".65">2</text>
+<text x="388.0" y="161.0" text-anchor="middle" font-size="13.5" fill="#2f6f4f" font-weight="600">Gmail trigger</text>
+<rect class="box" x="538" y="126" width="212" height="62" rx="9" fill="#dcf2e6" stroke="#2f6f4f" stroke-width="1.7"/>
+<text x="547" y="141" font-size="10" fill="#2f6f4f" opacity=".65">3</text>
+<text x="644.0" y="161.0" text-anchor="middle" font-size="13.5" fill="#2f6f4f" font-weight="600">Webhook lead intake</text>
+<rect class="box" x="794" y="126" width="212" height="62" rx="9" fill="#ffeccc" stroke="#8a5a00" stroke-width="1.7"/>
+<text x="803" y="141" font-size="10" fill="#8a5a00" opacity=".65">4</text>
+<text x="900.0" y="161.0" text-anchor="middle" font-size="13.5" fill="#8a5a00" font-weight="600">Normalize lead</text>
+<rect class="box" x="26" y="230" width="212" height="62" rx="9" fill="#ffeccc" stroke="#8a5a00" stroke-width="1.7"/>
+<text x="35" y="245" font-size="10" fill="#8a5a00" opacity=".65">5</text>
+<text x="132.0" y="265.0" text-anchor="middle" font-size="13.5" fill="#8a5a00" font-weight="600">Validate input</text>
+<rect class="box" x="282" y="230" width="212" height="62" rx="9" fill="#eaecf0" stroke="#596070" stroke-width="1.7"/>
+<text x="291" y="245" font-size="10" fill="#596070" opacity=".65">6</text>
+<text x="388.0" y="265.0" text-anchor="middle" font-size="13.5" fill="#596070" font-weight="600">Is valid</text>
+<rect class="box" x="538" y="230" width="212" height="62" rx="9" fill="#d8f2e8" stroke="#1f7a5a" stroke-width="1.7"/>
+<text x="547" y="245" font-size="10" fill="#1f7a5a" opacity=".65">7</text>
+<text x="644.0" y="265.0" text-anchor="middle" font-size="13.5" fill="#1f7a5a" font-weight="600">Register lead</text>
+<rect class="box" x="794" y="230" width="212" height="62" rx="9" fill="#ffeccc" stroke="#8a5a00" stroke-width="1.7"/>
+<text x="803" y="245" font-size="10" fill="#8a5a00" opacity=".65">8</text>
+<text x="900.0" y="265.0" text-anchor="middle" font-size="13.5" fill="#8a5a00" font-weight="600">Lead state</text>
+<rect class="box" x="26" y="334" width="212" height="62" rx="9" fill="#eaecf0" stroke="#596070" stroke-width="1.7"/>
+<text x="35" y="349" font-size="10" fill="#596070" opacity=".65">9</text>
+<text x="132.0" y="369.0" text-anchor="middle" font-size="13.5" fill="#596070" font-weight="600">Route by lead type</text>
+<text class="t" x="26" y="454" font-size="14" font-weight="600" fill="#111827">Thin: a rule decides, no model is called</text>
+<path d="M238,503.0 L274,503.0" fill="none" stroke="#9aa4b2" stroke-width="1.8" marker-end="url(#a)"/>
+<rect class="box" x="26" y="472" width="212" height="62" rx="9" fill="#ffeccc" stroke="#8a5a00" stroke-width="1.7"/>
+<text x="35" y="487" font-size="10" fill="#8a5a00" opacity=".65">1</text>
+<text x="132.0" y="507.0" text-anchor="middle" font-size="13.5" fill="#8a5a00" font-weight="600">Rule scoring</text>
+<rect class="box" x="282" y="472" width="212" height="62" rx="9" fill="#ffeccc" stroke="#8a5a00" stroke-width="1.7"/>
+<text x="291" y="487" font-size="10" fill="#8a5a00" opacity=".65">2</text>
+<text x="388.0" y="507.0" text-anchor="middle" font-size="13.5" fill="#8a5a00" font-weight="600">Prepare routing</text>
+<text class="t" x="26" y="592" font-size="14" font-weight="600" fill="#111827">Rich: read the company site, then ask the model</text>
+<path d="M238,641.0 L274,641.0" fill="none" stroke="#9aa4b2" stroke-width="1.8" marker-end="url(#a)"/>
+<path d="M494,641.0 L530,641.0" fill="none" stroke="#9aa4b2" stroke-width="1.8" marker-end="url(#a)"/>
+<path d="M750,641.0 L786,641.0" fill="none" stroke="#9aa4b2" stroke-width="1.8" marker-end="url(#a)"/>
+<path d="M900.0,672 L900.0,693.0 L132.0,693.0 L132.0,706" fill="none" stroke="#9aa4b2" stroke-width="1.8" stroke-dasharray="5 4" marker-end="url(#a)"/>
+<path d="M238,745.0 L274,745.0" fill="none" stroke="#9aa4b2" stroke-width="1.8" marker-end="url(#a)"/>
+<path d="M494,745.0 L530,745.0" fill="none" stroke="#9aa4b2" stroke-width="1.8" marker-end="url(#a)"/>
+<path d="M750,745.0 L786,745.0" fill="none" stroke="#9aa4b2" stroke-width="1.8" marker-end="url(#a)"/>
+<path d="M900.0,776 L900.0,797.0 L132.0,797.0 L132.0,810" fill="none" stroke="#9aa4b2" stroke-width="1.8" stroke-dasharray="5 4" marker-end="url(#a)"/>
+<path d="M238,849.0 L274,849.0" fill="none" stroke="#9aa4b2" stroke-width="1.8" marker-end="url(#a)"/>
+<path d="M494,849.0 L530,849.0" fill="none" stroke="#9aa4b2" stroke-width="1.8" marker-end="url(#a)"/>
+<rect class="box" x="26" y="610" width="212" height="62" rx="9" fill="#dbe9fb" stroke="#2b5f9e" stroke-width="1.7"/>
+<text x="35" y="625" font-size="10" fill="#2b5f9e" opacity=".65">1</text>
+<text x="132.0" y="645.0" text-anchor="middle" font-size="13.5" fill="#2b5f9e" font-weight="600">Fetch company site</text>
+<rect class="box" x="282" y="610" width="212" height="62" rx="9" fill="#ffeccc" stroke="#8a5a00" stroke-width="1.7"/>
+<text x="291" y="625" font-size="10" fill="#8a5a00" opacity=".65">2</text>
+<text x="388.0" y="645.0" text-anchor="middle" font-size="13.5" fill="#8a5a00" font-weight="600">Process fetch result</text>
+<rect class="box" x="538" y="610" width="212" height="62" rx="9" fill="#eaecf0" stroke="#596070" stroke-width="1.7"/>
+<text x="547" y="625" font-size="10" fill="#596070" opacity=".65">3</text>
+<text x="644.0" y="645.0" text-anchor="middle" font-size="13.5" fill="#596070" font-weight="600">Retry fetch</text>
+<rect class="box" x="794" y="610" width="212" height="62" rx="9" fill="#eaecf0" stroke="#596070" stroke-width="1.7"/>
+<text x="803" y="625" font-size="10" fill="#596070" opacity=".65">4</text>
+<text x="900.0" y="645.0" text-anchor="middle" font-size="13.5" fill="#596070" font-weight="600">Wait fetch backoff</text>
+<rect class="box" x="26" y="714" width="212" height="62" rx="9" fill="#ffeccc" stroke="#8a5a00" stroke-width="1.7"/>
+<text x="35" y="729" font-size="10" fill="#8a5a00" opacity=".65">5</text>
+<text x="132.0" y="749.0" text-anchor="middle" font-size="13.5" fill="#8a5a00" font-weight="600">Build prompt</text>
+<rect class="box" x="282" y="714" width="212" height="62" rx="9" fill="#eee2f8" stroke="#6b3fa0" stroke-width="1.7"/>
+<text x="291" y="729" font-size="10" fill="#6b3fa0" opacity=".65">6</text>
+<text x="388.0" y="749.0" text-anchor="middle" font-size="13.5" fill="#6b3fa0" font-weight="600">AI qualify</text>
+<rect class="box" x="538" y="714" width="212" height="62" rx="9" fill="#ffeccc" stroke="#8a5a00" stroke-width="1.7"/>
+<text x="547" y="729" font-size="10" fill="#8a5a00" opacity=".65">7</text>
+<text x="644.0" y="749.0" text-anchor="middle" font-size="13.5" fill="#8a5a00" font-weight="600">Validate contract</text>
+<rect class="box" x="794" y="714" width="212" height="62" rx="9" fill="#ffeccc" stroke="#8a5a00" stroke-width="1.7"/>
+<text x="803" y="729" font-size="10" fill="#8a5a00" opacity=".65">8</text>
+<text x="900.0" y="749.0" text-anchor="middle" font-size="13.5" fill="#8a5a00" font-weight="600">Classify AI error</text>
+<rect class="box" x="26" y="818" width="212" height="62" rx="9" fill="#eaecf0" stroke="#596070" stroke-width="1.7"/>
+<text x="35" y="833" font-size="10" fill="#596070" opacity=".65">9</text>
+<text x="132.0" y="853.0" text-anchor="middle" font-size="13.5" fill="#596070" font-weight="600">Retry AI</text>
+<rect class="box" x="282" y="818" width="212" height="62" rx="9" fill="#eaecf0" stroke="#596070" stroke-width="1.7"/>
+<text x="291" y="833" font-size="10" fill="#596070" opacity=".65">10</text>
+<text x="388.0" y="853.0" text-anchor="middle" font-size="13.5" fill="#596070" font-weight="600">Wait AI backoff</text>
+<rect class="box" x="538" y="818" width="212" height="62" rx="9" fill="#ffeccc" stroke="#8a5a00" stroke-width="1.7"/>
+<text x="547" y="833" font-size="10" fill="#8a5a00" opacity=".65">11</text>
+<text x="644.0" y="853.0" text-anchor="middle" font-size="13.5" fill="#8a5a00" font-weight="600">Resolve contract</text>
+<text class="t" x="26" y="938" font-size="14" font-weight="600" fill="#111827">Same six fields, whichever branch produced them</text>
+<path d="M238,987.0 L274,987.0" fill="none" stroke="#9aa4b2" stroke-width="1.8" marker-end="url(#a)"/>
+<path d="M494,987.0 L530,987.0" fill="none" stroke="#9aa4b2" stroke-width="1.8" marker-end="url(#a)"/>
+<path d="M750,987.0 L786,987.0" fill="none" stroke="#9aa4b2" stroke-width="1.8" marker-end="url(#a)"/>
+<path d="M900.0,1018 L900.0,1039.0 L132.0,1039.0 L132.0,1052" fill="none" stroke="#9aa4b2" stroke-width="1.8" stroke-dasharray="5 4" marker-end="url(#a)"/>
+<path d="M238,1091.0 L274,1091.0" fill="none" stroke="#9aa4b2" stroke-width="1.8" marker-end="url(#a)"/>
+<path d="M494,1091.0 L530,1091.0" fill="none" stroke="#9aa4b2" stroke-width="1.8" marker-end="url(#a)"/>
+<path d="M750,1091.0 L786,1091.0" fill="none" stroke="#9aa4b2" stroke-width="1.8" marker-end="url(#a)"/>
+<path d="M900.0,1122 L900.0,1143.0 L132.0,1143.0 L132.0,1156" fill="none" stroke="#9aa4b2" stroke-width="1.8" stroke-dasharray="5 4" marker-end="url(#a)"/>
+<rect class="box" x="26" y="956" width="212" height="62" rx="9" fill="#ffeccc" stroke="#8a5a00" stroke-width="1.7"/>
+<text x="35" y="971" font-size="10" fill="#8a5a00" opacity=".65">1</text>
+<text x="132.0" y="991.0" text-anchor="middle" font-size="13.5" fill="#8a5a00" font-weight="600">Prepare routing</text>
+<rect class="box" x="282" y="956" width="212" height="62" rx="9" fill="#d8f2e8" stroke="#1f7a5a" stroke-width="1.7"/>
+<text x="291" y="971" font-size="10" fill="#1f7a5a" opacity=".65">2</text>
+<text x="388.0" y="991.0" text-anchor="middle" font-size="13.5" fill="#1f7a5a" font-weight="600">Save qualification</text>
+<rect class="box" x="538" y="956" width="212" height="62" rx="9" fill="#eaecf0" stroke="#596070" stroke-width="1.7"/>
+<text x="547" y="971" font-size="10" fill="#596070" opacity=".65">3</text>
+<text x="644.0" y="991.0" text-anchor="middle" font-size="13.5" fill="#596070" font-weight="600">Alert needed</text>
+<rect class="box" x="794" y="956" width="212" height="62" rx="9" fill="#d9f1fa" stroke="#1d7fa8" stroke-width="1.7"/>
+<text x="803" y="971" font-size="10" fill="#1d7fa8" opacity=".65">4</text>
+<text x="900.0" y="991.0" text-anchor="middle" font-size="13.5" fill="#1d7fa8" font-weight="600">Telegram alert</text>
+<rect class="box" x="26" y="1060" width="212" height="62" rx="9" fill="#eaecf0" stroke="#596070" stroke-width="1.7"/>
+<text x="35" y="1075" font-size="10" fill="#596070" opacity=".65">5</text>
+<text x="132.0" y="1095.0" text-anchor="middle" font-size="13.5" fill="#596070" font-weight="600">Route by heat</text>
+<rect class="box" x="282" y="1060" width="212" height="62" rx="9" fill="#fbe0e0" stroke="#a03a3a" stroke-width="1.7"/>
+<text x="291" y="1075" font-size="10" fill="#a03a3a" opacity=".65">6</text>
+<text x="388.0" y="1095.0" text-anchor="middle" font-size="13.5" fill="#a03a3a" font-weight="600">Gmail draft hot</text>
+<rect class="box" x="538" y="1060" width="212" height="62" rx="9" fill="#ffeccc" stroke="#8a5a00" stroke-width="1.7"/>
+<text x="547" y="1075" font-size="10" fill="#8a5a00" opacity=".65">7</text>
+<text x="644.0" y="1095.0" text-anchor="middle" font-size="13.5" fill="#8a5a00" font-weight="600">Build run row</text>
+<rect class="box" x="794" y="1060" width="212" height="62" rx="9" fill="#d8f2e8" stroke="#1f7a5a" stroke-width="1.7"/>
+<text x="803" y="1075" font-size="10" fill="#1f7a5a" opacity=".65">8</text>
+<text x="900.0" y="1095.0" text-anchor="middle" font-size="13.5" fill="#1f7a5a" font-weight="600">Log run</text>
+<rect class="box" x="26" y="1164" width="212" height="62" rx="9" fill="#ffeccc" stroke="#8a5a00" stroke-width="1.7"/>
+<text x="35" y="1179" font-size="10" fill="#8a5a00" opacity=".65">9</text>
+<text x="132.0" y="1199.0" text-anchor="middle" font-size="13.5" fill="#8a5a00" font-weight="600">Webhook response</text>
+<rect x="26" y="1272" width="11" height="11" rx="3" fill="#dcf2e6" stroke="#2f6f4f" stroke-width="1.4"/>
+<text class="s" x="43" y="1281.5" font-size="11.5" fill="#6b7280">trigger</text>
+<rect x="96.9" y="1272" width="11" height="11" rx="3" fill="#d8f2e8" stroke="#1f7a5a" stroke-width="1.4"/>
+<text class="s" x="113.9" y="1281.5" font-size="11.5" fill="#6b7280">Airtable</text>
+<rect x="174.5" y="1272" width="11" height="11" rx="3" fill="#fbe0e0" stroke="#a03a3a" stroke-width="1.4"/>
+<text class="s" x="191.5" y="1281.5" font-size="11.5" fill="#6b7280">Gmail</text>
+<rect x="232.0" y="1272" width="11" height="11" rx="3" fill="#ffeccc" stroke="#8a5a00" stroke-width="1.4"/>
+<text class="s" x="249.0" y="1281.5" font-size="11.5" fill="#6b7280">code</text>
+<rect x="282.8" y="1272" width="11" height="11" rx="3" fill="#eee2f8" stroke="#6b3fa0" stroke-width="1.4"/>
+<text class="s" x="299.8" y="1281.5" font-size="11.5" fill="#6b7280">model</text>
+<rect x="340.3" y="1272" width="11" height="11" rx="3" fill="#d9f1fa" stroke="#1d7fa8" stroke-width="1.4"/>
+<text class="s" x="357.3" y="1281.5" font-size="11.5" fill="#6b7280">alert</text>
+<rect x="397.8" y="1272" width="11" height="11" rx="3" fill="#eaecf0" stroke="#596070" stroke-width="1.4"/>
+<text class="s" x="414.8" y="1281.5" font-size="11.5" fill="#6b7280">control</text>
+</svg>
