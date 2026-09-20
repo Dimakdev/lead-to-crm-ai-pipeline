@@ -1,19 +1,25 @@
 # Minimal self-hosted n8n for this workflow. Start:  docker compose up -d   -> http://localhost:5678
 # First visit creates the owner account. Then: Settings -> n8n API -> create a key -> .env N8N_API_KEY.
+#
+# Ports and the container name are overridable, so this can run beside an n8n that already has 5678:
+#   N8N_PORT=5680 docker compose -p lead up -d
+#
+# GENERIC_TIMEZONE decides what "05:00" means to a schedule. Set TIMEZONE in .env to your own
+# (America/Vancouver, Europe/Berlin, ...); the default is UTC, which is nobody's morning.
 services:
   n8n:
     image: docker.n8n.io/n8nio/n8n:latest
-    container_name: n8n
+    container_name: ${N8N_CONTAINER:-n8n-lead-to-crm}
     restart: unless-stopped
     ports:
-      - "5678:5678"
+      - "${N8N_PORT:-5678}:5678"
     environment:
       - N8N_HOST=localhost
       - N8N_PORT=5678
       - N8N_PROTOCOL=http
-      - WEBHOOK_URL=http://localhost:5678/
-      - GENERIC_TIMEZONE=America/Vancouver
-      - TZ=America/Vancouver
+      - WEBHOOK_URL=http://localhost:${N8N_PORT:-5678}/
+      - GENERIC_TIMEZONE=${TIMEZONE:-UTC}
+      - TZ=${TIMEZONE:-UTC}
       # keep data of failed runs so they can be inspected and replayed from the UI (n8n default, made explicit)
       - EXECUTIONS_DATA_SAVE_ON_ERROR=all
       - EXECUTIONS_DATA_SAVE_ON_SUCCESS=all
