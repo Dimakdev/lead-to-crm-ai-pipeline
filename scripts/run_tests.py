@@ -74,6 +74,21 @@ def wait_for_execution(n8n: N8n, wf_id: str, trigger_node: str, after_ts: float,
     return None
 
 
+def run_rows_for(at, ex_id):
+    """Runs rows for one execution, newest first.
+
+    run_id is `<utc date>-<execution id>`, written by the workflow rather than by this script, so
+    matching on the ending is what stays true when the clock has just ticked past midnight between
+    the run and this lookup. Rows written before that format existed do not match, which is honest:
+    they belong to a different n8n whose execution numbering started over.
+    """
+    if not ex_id:
+        return []
+    suffix = f"-{ex_id}"
+    rows = at.records("Runs", f"RIGHT({{run_id}}, {len(suffix)}) = '{suffix}'")
+    return sorted(rows, key=lambda r: r["fields"].get("timestamp", ""), reverse=True)
+
+
 def node_summary(execution: dict) -> dict:
     run_data = (((execution.get("data") or {}).get("resultData") or {}).get("runData") or {})
     out = {}
@@ -196,7 +211,7 @@ def main() -> None:
             nodes = node_summary(ex) if ex else {}
             ex_id = ex.get("id") if ex else None
             lead_rows = at.records("Leads", f"{{dedupe_key}}='{dedupe}'") if dedupe else []
-            run_rows = at.records("Runs", f"{{run_id}}='{ex_id}'") if ex_id else []
+            run_rows = run_rows_for(at, ex_id)
             lead = lead_rows[0]["fields"] if lead_rows else {}
             run = run_rows[0]["fields"] if run_rows else {"status": "NO ROW"}
             rows.append({
@@ -250,7 +265,7 @@ def main() -> None:
         lead_rows, run_rows = [], []
         for _ in range(4):  # Airtable search can lag a second or two behind a fresh write
             lead_rows = at.records("Leads", f"{{dedupe_key}}='{dedupe}'") if dedupe else []
-            run_rows = at.records("Runs", f"{{run_id}}='{ex_id}'") if ex_id else []
+            run_rows = run_rows_for(at, ex_id)
             if run_rows and (lead_rows or not dedupe):
                 break
             time.sleep(2)

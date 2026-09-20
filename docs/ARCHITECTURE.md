@@ -126,7 +126,7 @@ exact. `scripts/deploy.py --create-tables` creates both.
 | status | Single select | New, Hot, Nurture, Contacted, Archived |
 | touches | Number | how many times this contact reached out |
 | needs_review | Checkbox | |
-| run_id | Text | the n8n execution id, matches `Runs` |
+| run_id | Text | `<utc date>-<n8n execution id>`, matches `Runs` |
 
 **Runs**: `run_id`, `timestamp`, `trigger_source`, `lead_ref`, `status` (ok / retry / error),
 `failed_node`, `error_message`, `duration_ms`. A row is written on every path, including invalid input,
@@ -157,10 +157,26 @@ active; the deploy script activates it.
 **Invalid input** never fails an execution. Webhook callers get a structured body back (`ok: false`, the
 list of errors), and the run is logged.
 
+### Why `run_id` carries a date
+
+n8n numbers executions from 1 again whenever it is rebuilt from an empty database — a new machine, a
+new volume, a colleague trying the repo. The Airtable base usually outlives all of that, so a bare
+execution id is not an identifier: after a rebuild, run 3 of the new instance sits in the same table
+as run 3 of the old one. The UTC date in front is enough to tell them apart and still reads like
+something a person can quote in a message: `20260920-41`.
+
+This was found by installing the repository from a clean clone: a second n8n, pointed at the same
+base, started its numbering over and the test harness read the older row back.
+
 ## Test run
 
 All cases were run on 2026-09-18 against n8n 2.39.5 with Gemini `gemini-3.5-flash-lite` and
 `gemini-3.5-flash` as fallback, Telegram and Gmail connected.
+
+The scores below are what that run produced, not a promise. The model is asked for a number, and the
+same lead can come back 35 one day and 25 the next; re-run on 2026-09-20 from a clean install, case 3
+scored 25. What does not move is the branch: the same lead lands in the same heat, the same status and
+the same Gmail draft. Read the last four columns as the contract and the number as weather.
 
 | case | input | lead_type | score | heat | category | status | touches | review | Runs | Telegram | Gmail draft |
 |---|---|---|---|---|---|---|---|---|---|---|---|

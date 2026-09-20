@@ -5,7 +5,7 @@ const wf = e.workflow || {};
 const err = ex.error || (e.trigger && e.trigger.error) || {};
 
 const row = {
-  run_id: ex.id || 'n/a',
+  run_id: ex.id ? `${DateTime.utc().toFormat('yyyyLLdd')}-${ex.id}` : 'n/a',   // see normalize_lead
   timestamp: DateTime.utc().toISO(),
   trigger_source: `error_workflow:${wf.name || 'unknown workflow'}`,
   lead_ref: '',

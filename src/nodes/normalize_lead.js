@@ -182,7 +182,10 @@ return [{
     dedupe_key: email || phone || '',
     channel_weight: src ? src.weight : DEFAULT_WEIGHT,
     trigger: trigger === 'Webhook lead intake' ? 'webhook' : trigger === 'Form trigger' ? 'form' : 'gmail',
-    run_id: $execution.id,
+    // n8n numbers executions from 1 again whenever it is rebuilt from an empty database, so on an
+    // Airtable base that already holds history two unrelated runs can both call themselves run 3.
+    // The UTC date in front makes the id unique in practice and still readable: 20260920-41.
+    run_id: `${DateTime.utc().toFormat('yyyyLLdd')}-${$execution.id}`,
     run_started_at: Date.now(),
   },
 }];
